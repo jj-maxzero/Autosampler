@@ -1,0 +1,39 @@
+# Visual Studio 관련
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# 빌드 출력물
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+# 테스트 결과
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# 임시 파일
+*.log
+*.vspscc
+*.vssscc
+*.cache
+*.pdb
+*.tmp
+*.bak
+*.swp
+
+# NuGet 패키지
+*.nupkg
+packages/
+
+# 기타 자동 생성 파일
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
