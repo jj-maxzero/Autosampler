@@ -1,0 +1,224 @@
+﻿<UserControl x:Class="Autosampler_UI.MainControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Autosampler_UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="800">
+
+
+    <UserControl.Resources>
+        <!-- ✅ 모든 라운드 버튼에 공통 적용할 스타일 -->
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="5"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="RoundedComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="5,2"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Border CornerRadius="5"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <!-- ✅ 3열 정의 (텍스트, 빈공간, 화살표용) -->
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <!-- 텍스트 영역 -->
+                                    <ColumnDefinition Width="Auto" />
+                                    <!-- 여유 공간 -->
+                                    <ColumnDefinition Width="30" />
+                                    <!-- 화살표 영역 -->
+                                </Grid.ColumnDefinitions>
+
+                                <!-- ✅ 드롭다운 버튼 (화살표) -->
+                                <ToggleButton x:Name="ToggleButton"
+                  Grid.Column="2"
+                  Focusable="false"
+                  IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                  ClickMode="Press"
+                  Background="Transparent"
+                  BorderThickness="0">
+                                    <Path x:Name="Arrow"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Data="M 0 0 L 4 4 L 8 0 Z"
+              Fill="Black"/>
+                                </ToggleButton>
+
+                                <!-- ✅ 텍스트 표시 영역 -->
+                                <ContentPresenter x:Name="ContentSite"
+                      Grid.Column="0"
+                      IsHitTestVisible="False"
+                      Content="{TemplateBinding SelectionBoxItem}"
+                      ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                      Margin="5,3,5,3"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Left" />
+
+                                <!-- ✅ 드롭다운 팝업 -->
+                                <Popup x:Name="Popup"
+                               Placement="Bottom"
+                               IsOpen="{TemplateBinding IsDropDownOpen}"
+                               AllowsTransparency="True"
+                               Focusable="False"
+                               PopupAnimation="Slide">
+                                    <Border x:Name="DropDownBorder"
+                                    Background="White"
+                                    BorderBrush="Gray"
+                                    BorderThickness="1"
+                                    CornerRadius="5" Width="180" Height="100">
+                                        <ScrollViewer Margin="0,0,0,0">
+                                            <StackPanel IsItemsHost="True"
+                                                KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                        </ScrollViewer>
+                                    </Border>
+                                </Popup>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+    </UserControl.Resources>
+
+
+
+
+    <Grid Background="White">
+        <!-- ✅ 2행 × 2열 레이아웃 정의 -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <!-- 첫 번째 줄 -->
+            <RowDefinition Height="*" />
+            <!-- 두 번째 줄 -->
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600" />
+            <!-- 첫 번째 열 -->
+            <ColumnDefinition Width="*" />
+            <!-- 두 번째 열 -->
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0"  Background="White">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="180" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="1"
+           Text="Rack Selection"
+           FontSize="16"
+           FontWeight="Bold"
+           Foreground="Black"
+           Background="White"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Center"
+           Margin="20,0,0,0"/>
+
+                <!-- ✅ 기존 Button 대신 Border 사용 -->
+                <Border Grid.Column="2"
+        Width="180"
+        Height="30"
+        CornerRadius="5"
+        Background="White"
+        BorderBrush="Gray"
+        BorderThickness="1"
+        HorizontalAlignment="Right"
+        VerticalAlignment="Center">
+                    <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
+              Width="150"
+              Height="30"
+              Background="Transparent"
+              Foreground="Black"
+              BorderThickness="0"
+              VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="15ml tube"/>
+                        <ComboBoxItem Content="50ml tube"/>
+                    </ComboBox>
+                </Border>
+
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="0" Grid.Column="1" BorderBrush="LightGray" BorderThickness="1">
+            <TextBlock Text="1행 2열"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="20"/>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="0" BorderBrush="LightGray" BorderThickness="1">
+            <TextBlock Text="2행 1열"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="20"/>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="LightGray" BorderThickness="1">
+            <Grid>
+                <!-- 🔹 10개의 줄 만들기 -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- 🔹 테스트용 박스 넣기 -->
+                <Border Grid.Row="0" BorderBrush="Red" BorderThickness="1">
+                    <TextBlock Text="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+
+                <Border Grid.Row="1" BorderBrush="Orange" BorderThickness="1">
+                    <TextBlock Text="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+
+                <!-- … 이런 식으로 10번 반복 … -->
+
+                <Border Grid.Row="9" BorderBrush="Purple" BorderThickness="1">
+                    <TextBlock Text="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>

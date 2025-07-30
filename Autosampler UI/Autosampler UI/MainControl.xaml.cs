@@ -16,22 +16,13 @@ using System.Windows.Shapes;
 namespace Autosampler_UI
 {
     /// <summary>
-    /// MainWindow.xaml에 대한 상호 작용 논리
+    /// MainControl.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainControl : UserControl
     {
-        public MainWindow()
+        public MainControl()
         {
             InitializeComponent();
-        }
-
-        private void ShowMain(object sender, RoutedEventArgs e)
-        {
-            //MainControl 인스턴스 생성
-            MainControl mainControl = new MainControl();
-
-            //ContentControl에 삽입
-            DynamicContent.Content = mainControl;
         }
     }
 }

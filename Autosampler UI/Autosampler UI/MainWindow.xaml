@@ -44,37 +44,70 @@
             <!-- 하단 시간바 -->
         </Grid.RowDefinitions>
 
-        <!-- ✅ 상단 네비게이션 바 (원래 왼쪽 패널) -->
-        <Grid Background="#1E71B8" Grid.Row="0" Height="50">
+        <Grid Background="#1E71B8" Grid.Row="0" Height="50" Panel.ZIndex="0">
+            <!-- 네비게이션 바는 좌측 StackPanel(로고+버튼)과 우측 Vessel 버튼 영역을 나눠서 배치 -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <!-- 왼쪽: 로고 & 메뉴 버튼 -->
+                <ColumnDefinition Width="150" />
+                <!-- 오른쪽: Vessel 버튼들 -->
+            </Grid.ColumnDefinitions>
+
+            <!-- ✅ 왼쪽: 로고 & 메뉴 버튼 -->
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0">
                 <!-- 로고 -->
                 <Image Source="pack://application:,,,/Images/logo.png"
-                       Width="80" Height="50"
-                       Margin="0,0,20,0"
-                       RenderOptions.BitmapScalingMode="HighQuality"/>
+               Width="80" Height="50"
+               Margin="0,0,0,0"
+               RenderOptions.BitmapScalingMode="HighQuality"/>
 
                 <!-- Main 버튼 -->
-                <Button x:Name="MainButton" Style="{StaticResource NavButtonStyle}" Width="130" Height="40" Click="ShowMain">
+                <Button x:Name="MainButton" Style="{StaticResource NavButtonStyle}" Width="120" Height="40" Click="ShowMain">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <Image Source="pack://application:,,,/Images/side menu_home_icon_normal.png" Width="20" Height="20" Margin="0,0,10,0" />
+                        <Image Source="pack://application:,,,/Images/side menu_home_icon_normal.png" Width="20" Height="20" Margin="0,0,5,0" />
                         <TextBlock Text="Main" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
                     </StackPanel>
                 </Button>
 
-                <!-- Trend 버튼 -->
-                <Button x:Name="CalButton" Style="{StaticResource NavButtonStyle}" Width="160" Height="40" Click="ShowTrend">
+                <!-- Calibration 버튼 -->
+                <Button x:Name="CalButton" Style="{StaticResource NavButtonStyle}" Width="170" Height="40">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <Image Source="pack://application:,,,/Images/side menu_cascade_icon_normal.png" Width="20" Height="20" Margin="0,0,10,0" />
+                        <Image Source="pack://application:,,,/Images/side menu_cascade_icon_normal.png" Width="20" Height="20" Margin="0,0,5,0" />
                         <TextBlock Text="Calibration" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
                     </StackPanel>
                 </Button>
 
-                <!-- Data 버튼 -->
-                <Button x:Name="R1_Data1" Style="{StaticResource NavButtonStyle}" Width="130" Height="40" Click="ShowData">
+                <!-- Data 버튼 1 -->
+                <Button x:Name="R1_Data1" Style="{StaticResource NavButtonStyle}" Width="105" Height="40">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Source="pack://application:,,,/Images/side menu_cascade_icon_normal.png" Width="20" Height="20" Margin="0,0,10,0" />
-                        <TextBlock x:Name="R1_Data" Text="Data" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
+                        <TextBlock x:Name="R1_Data" Text="CIP" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
                     </StackPanel>
+                </Button>
+
+                <!-- Data 버튼 2 -->
+                <Button x:Name="R2_Data1" Style="{StaticResource NavButtonStyle}" Width="150" Height="40">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Source="pack://application:,,,/Images/side menu_cascade_icon_normal.png" Width="20" Height="20" Margin="0,0,5,0" />
+                        <TextBlock x:Name="R2_Data" Text="Manual" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <!-- ✅ 오른쪽: Vessel 버튼 두 개 -->
+            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0">
+                <Button x:Name="Vessel_1" Width="40" Height="30" Background="Transparent" BorderThickness="0">
+                    <Grid>
+                        <Image x:Name="Vessel1Image" Source="pack://application:,,,/Images/vessel_btn_all,1~6_normal.png" Stretch="Uniform" Width="35"/>
+                        <TextBlock Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="20" />
+                    </Grid>
+                </Button>
+
+                <Button x:Name="Vessel_2" Width="40" Height="30" Background="Transparent" BorderThickness="0" Margin="5,0,0,0">
+                    <Grid>
+                        <Image x:Name="Vessel2Image" Source="pack://application:,,,/Images/vessel_btn_all,1~6_normal.png" Stretch="Uniform" Width="35"/>
+                        <TextBlock Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="20" />
+                    </Grid>
                 </Button>
             </StackPanel>
         </Grid>
@@ -82,44 +115,29 @@
         <!-- ✅ 메인 콘텐츠 영역 -->
         <Grid Grid.Row="1" Margin="0">
             <Grid.RowDefinitions>
-               
-                <RowDefinition Height="50" />
+
+
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <!-- 콘텐츠 (Vessel 버튼, 그래프 등 기존 내용 그대로 사용 가능) -->
 
             <!-- Vessel 버튼 예시 -->
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="0" Panel.ZIndex="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="120" />
                     <ColumnDefinition Width="120" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="33*" />
+                    <ColumnDefinition Width="197*"/>
                     <ColumnDefinition Width="50" />
                     <ColumnDefinition Width="50" />
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="Vessel_1" Grid.Column="3" Width="40" Height="30" Background="Transparent" 
-                        BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                        Click="Vessel1Button_Click">
-                    <Grid>
-                        <Image x:Name="Vessel1Image" Source="pack://application:,,,/Images/vessel_btn_all,1~6_normal.png" Stretch="Uniform" Width="35"/>
-                        <TextBlock Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="20" />
-                    </Grid>
-                </Button>
 
-                <Button x:Name="Vessel_2" Grid.Column="4" Width="40" Height="30" Background="Transparent" 
-                        BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                        Click="Vessel2Button_Click">
-                    <Grid>
-                        <Image x:Name="Vessel2Image" Source="pack://application:,,,/Images/vessel_btn_all,1~6_normal.png" Stretch="Uniform" Width="35"/>
-                        <TextBlock Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="20" />
-                    </Grid>
-                </Button>
             </Grid>
 
             <!-- 그래프 표시 영역 -->
-            <Border Grid.Row="2" BorderBrush="#E0E0E0" BorderThickness="1">
+            <Border Grid.Row="0" BorderBrush="#E0E0E0" BorderThickness="1">
                 <ContentControl x:Name="DynamicContent"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
