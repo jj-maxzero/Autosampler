@@ -94,5 +94,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Agitation.png" />
+    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\logo1.png" />
+    <Resource Include="Images\side menu_cascade_icon_normal.png" />
+    <Resource Include="Images\side menu_home_icon_normal.png" />
+    <Resource Include="Images\side menu_home_icon_select.png" />
+    <Resource Include="Images\vessel_btn_all,1~6_normal.png" />
+    <Resource Include="Images\vessel_btn_all,1~6_select.png" />
+    <Resource Include="Images\vessel_image_agitation.png" />
+    <Resource Include="Images\vessel_image_normal.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

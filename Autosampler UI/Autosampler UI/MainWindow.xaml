@@ -5,8 +5,138 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Autosampler_UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="480" Width="800">
+
+    <Window.Resources>
+        <Style x:Key="NavButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#1E71B8" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                         CornerRadius="0" Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Image Width="20" Height="20" Margin="0,0,0,0" />
+                                <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
-        <Button Content="Hello GitHub!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <!-- 전체 레이아웃: 상단 네비게이션 / 콘텐츠 / 하단 시간 바 -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <!-- 상단 네비게이션 -->
+            <RowDefinition Height="*"/>
+            <!-- 메인 콘텐츠 -->
+            <RowDefinition Height="20"/>
+            <!-- 하단 시간바 -->
+        </Grid.RowDefinitions>
+
+        <!-- ✅ 상단 네비게이션 바 (원래 왼쪽 패널) -->
+        <Grid Background="#1E71B8" Grid.Row="0" Height="50">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0">
+                <!-- 로고 -->
+                <Image Source="pack://application:,,,/Images/logo.png"
+                       Width="80" Height="50"
+                       Margin="0,0,20,0"
+                       RenderOptions.BitmapScalingMode="HighQuality"/>
+
+                <!-- Main 버튼 -->
+                <Button x:Name="MainButton" Style="{StaticResource NavButtonStyle}" Width="130" Height="40" Click="ShowMain">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Source="pack://application:,,,/Images/side menu_home_icon_normal.png" Width="20" Height="20" Margin="0,0,10,0" />
+                        <TextBlock Text="Main" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
+                    </StackPanel>
+                </Button>
+
+                <!-- Trend 버튼 -->
+                <Button x:Name="CalButton" Style="{StaticResource NavButtonStyle}" Width="160" Height="40" Click="ShowTrend">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Source="pack://application:,,,/Images/side menu_cascade_icon_normal.png" Width="20" Height="20" Margin="0,0,10,0" />
+                        <TextBlock Text="Calibration" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
+                    </StackPanel>
+                </Button>
+
+                <!-- Data 버튼 -->
+                <Button x:Name="R1_Data1" Style="{StaticResource NavButtonStyle}" Width="130" Height="40" Click="ShowData">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Source="pack://application:,,,/Images/side menu_cascade_icon_normal.png" Width="20" Height="20" Margin="0,0,10,0" />
+                        <TextBlock x:Name="R1_Data" Text="Data" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <!-- ✅ 메인 콘텐츠 영역 -->
+        <Grid Grid.Row="1" Margin="0">
+            <Grid.RowDefinitions>
+               
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- 콘텐츠 (Vessel 버튼, 그래프 등 기존 내용 그대로 사용 가능) -->
+
+            <!-- Vessel 버튼 예시 -->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="50" />
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="Vessel_1" Grid.Column="3" Width="40" Height="30" Background="Transparent" 
+                        BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        Click="Vessel1Button_Click">
+                    <Grid>
+                        <Image x:Name="Vessel1Image" Source="pack://application:,,,/Images/vessel_btn_all,1~6_normal.png" Stretch="Uniform" Width="35"/>
+                        <TextBlock Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="20" />
+                    </Grid>
+                </Button>
+
+                <Button x:Name="Vessel_2" Grid.Column="4" Width="40" Height="30" Background="Transparent" 
+                        BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        Click="Vessel2Button_Click">
+                    <Grid>
+                        <Image x:Name="Vessel2Image" Source="pack://application:,,,/Images/vessel_btn_all,1~6_normal.png" Stretch="Uniform" Width="35"/>
+                        <TextBlock Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="20" />
+                    </Grid>
+                </Button>
+            </Grid>
+
+            <!-- 그래프 표시 영역 -->
+            <Border Grid.Row="2" BorderBrush="#E0E0E0" BorderThickness="1">
+                <ContentControl x:Name="DynamicContent"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Margin="10"/>
+            </Border>
+        </Grid>
+
+        <!-- ✅ 하단 날짜/시간 표시 바 -->
+        <Grid Grid.Row="2" Background="LightGray">
+            <TextBlock x:Name="DateTimeTextBlock"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="10,0,10,0"
+                       FontSize="16"
+                       FontWeight="Bold"
+                       Foreground="Black"
+                       Text="2025-04-28  14:30:45"/>
+        </Grid>
     </Grid>
 </Window>
