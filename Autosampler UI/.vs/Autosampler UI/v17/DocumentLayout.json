@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\j\\Documents\\Autosampler\\Autosampler UI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|c:\\users\\j\\documents\\autosampler\\autosampler ui\\autosampler ui\\maincontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|solutionrelative:autosampler ui\\maincontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|C:\\Users\\j\\Documents\\Autosampler\\Autosampler UI\\autosampler ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|solutionrelative:autosampler ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|C:\\Users\\j\\Documents\\Autosampler\\Autosampler UI\\autosampler ui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|solutionrelative:autosampler ui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|c:\\users\\j\\documents\\autosampler\\autosampler ui\\autosampler ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|solutionrelative:autosampler ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|c:\\users\\j\\documents\\autosampler\\autosampler ui\\autosampler ui\\maincontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|solutionrelative:autosampler ui\\maincontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|c:\\users\\j\\documents\\autosampler\\autosampler ui\\autosampler ui\\maincontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|solutionrelative:autosampler ui\\maincontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|c:\\users\\j\\documents\\autosampler\\autosampler ui\\autosampler ui\\rack15mlcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|solutionrelative:autosampler ui\\rack15mlcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|c:\\users\\j\\documents\\autosampler\\autosampler ui\\autosampler ui\\rack15mlcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|solutionrelative:autosampler ui\\rack15mlcontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|c:\\users\\j\\documents\\autosampler\\autosampler ui\\autosampler ui\\rack50mlcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6A7CA91D-6E34-4414-BBAF-D282916FF2BE}|Autosampler UI\\Autosampler UI.csproj|solutionrelative:autosampler ui\\rack50mlcontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +38,61 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
+              "Title": "Rack50mlControl.xaml",
+              "DocumentMoniker": "C:\\Users\\j\\Documents\\Autosampler\\Autosampler UI\\Autosampler UI\\Rack50mlControl.xaml",
+              "RelativeDocumentMoniker": "Autosampler UI\\Rack50mlControl.xaml",
+              "ToolTip": "C:\\Users\\j\\Documents\\Autosampler\\Autosampler UI\\Autosampler UI\\Rack50mlControl.xaml",
+              "RelativeToolTip": "Autosampler UI\\Rack50mlControl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-01T00:10:11.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainControl.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\j\\Documents\\Autosampler\\Autosampler UI\\Autosampler UI\\MainControl.xaml.cs",
+              "RelativeDocumentMoniker": "Autosampler UI\\MainControl.xaml.cs",
+              "ToolTip": "C:\\Users\\j\\Documents\\Autosampler\\Autosampler UI\\Autosampler UI\\MainControl.xaml.cs",
+              "RelativeToolTip": "Autosampler UI\\MainControl.xaml.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAIwBkAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T00:01:26.677Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Rack15mlControl.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\j\\Documents\\Autosampler\\Autosampler UI\\Autosampler UI\\Rack15mlControl.xaml.cs",
+              "RelativeDocumentMoniker": "Autosampler UI\\Rack15mlControl.xaml.cs",
+              "ToolTip": "C:\\Users\\j\\Documents\\Autosampler\\Autosampler UI\\Autosampler UI\\Rack15mlControl.xaml.cs",
+              "RelativeToolTip": "Autosampler UI\\Rack15mlControl.xaml.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAACUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T23:58:27.371Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Rack15mlControl.xaml",
+              "DocumentMoniker": "C:\\Users\\j\\Documents\\Autosampler\\Autosampler UI\\Autosampler UI\\Rack15mlControl.xaml",
+              "RelativeDocumentMoniker": "Autosampler UI\\Rack15mlControl.xaml",
+              "ToolTip": "C:\\Users\\j\\Documents\\Autosampler\\Autosampler UI\\Autosampler UI\\Rack15mlControl.xaml",
+              "RelativeToolTip": "Autosampler UI\\Rack15mlControl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-31T23:57:45.006Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MainControl.xaml",
               "DocumentMoniker": "C:\\Users\\j\\Documents\\Autosampler\\Autosampler UI\\Autosampler UI\\MainControl.xaml",
               "RelativeDocumentMoniker": "Autosampler UI\\MainControl.xaml",
@@ -38,7 +104,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\j\\Documents\\Autosampler\\Autosampler UI\\Autosampler UI\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Autosampler UI\\MainWindow.xaml",
@@ -56,7 +122,7 @@
               "RelativeDocumentMoniker": "Autosampler UI\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\j\\Documents\\Autosampler\\Autosampler UI\\Autosampler UI\\MainWindow.xaml.cs",
               "RelativeToolTip": "Autosampler UI\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvyEAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAxwB4AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-30T01:27:29.507Z",
               "EditorCaption": ""

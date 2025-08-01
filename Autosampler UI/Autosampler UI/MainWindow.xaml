@@ -62,9 +62,9 @@
                RenderOptions.BitmapScalingMode="HighQuality"/>
 
                 <!-- Main 버튼 -->
-                <Button x:Name="MainButton" Style="{StaticResource NavButtonStyle}" Width="120" Height="40" Click="ShowMain">
+                <Button x:Name="MainButton" Style="{StaticResource NavButtonStyle}" Width="115" Height="40" Click="ShowMain">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <Image Source="pack://application:,,,/Images/side menu_home_icon_normal.png" Width="20" Height="20" Margin="0,0,5,0" />
+                        <Image Source="pack://application:,,,/Images/side menu_home_icon_normal.png" Width="20" Height="20" Margin="0,0,2,0" />
                         <TextBlock Text="Main" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
                     </StackPanel>
                 </Button>
@@ -72,7 +72,7 @@
                 <!-- Calibration 버튼 -->
                 <Button x:Name="CalButton" Style="{StaticResource NavButtonStyle}" Width="170" Height="40">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <Image Source="pack://application:,,,/Images/side menu_cascade_icon_normal.png" Width="20" Height="20" Margin="0,0,5,0" />
+                        <Image Source="pack://application:,,,/Images/side menu_cascade_icon_normal.png" Width="20" Height="20" Margin="0,0,2,0" />
                         <TextBlock Text="Calibration" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
                     </StackPanel>
                 </Button>
@@ -80,15 +80,15 @@
                 <!-- Data 버튼 1 -->
                 <Button x:Name="R1_Data1" Style="{StaticResource NavButtonStyle}" Width="105" Height="40">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <Image Source="pack://application:,,,/Images/side menu_cascade_icon_normal.png" Width="20" Height="20" Margin="0,0,10,0" />
+                        <Image Source="pack://application:,,,/Images/side menu_cascade_icon_normal.png" Width="20" Height="20" Margin="0,0,2,0" />
                         <TextBlock x:Name="R1_Data" Text="CIP" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
                     </StackPanel>
                 </Button>
 
                 <!-- Data 버튼 2 -->
-                <Button x:Name="R2_Data1" Style="{StaticResource NavButtonStyle}" Width="150" Height="40">
+                <Button x:Name="R2_Data1" Style="{StaticResource NavButtonStyle}" Width="140" Height="40">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <Image Source="pack://application:,,,/Images/side menu_cascade_icon_normal.png" Width="20" Height="20" Margin="0,0,5,0" />
+                        <Image Source="pack://application:,,,/Images/side menu_cascade_icon_normal.png" Width="20" Height="20" Margin="0,0,2,0" />
                         <TextBlock x:Name="R2_Data" Text="Manual" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
                     </StackPanel>
                 </Button>
@@ -98,14 +98,14 @@
             <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0">
                 <Button x:Name="Vessel_1" Width="40" Height="30" Background="Transparent" BorderThickness="0">
                     <Grid>
-                        <Image x:Name="Vessel1Image" Source="pack://application:,,,/Images/vessel_btn_all,1~6_normal.png" Stretch="Uniform" Width="35"/>
+                        <Image x:Name="Vessel1Image" Source="pack://application:,,,/Images/vessel_btn_all,1~6_select.png" Stretch="Uniform" Width="35"/>
                         <TextBlock Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="20" />
                     </Grid>
                 </Button>
 
                 <Button x:Name="Vessel_2" Width="40" Height="30" Background="Transparent" BorderThickness="0" Margin="5,0,0,0">
                     <Grid>
-                        <Image x:Name="Vessel2Image" Source="pack://application:,,,/Images/vessel_btn_all,1~6_normal.png" Stretch="Uniform" Width="35"/>
+                        <Image x:Name="Vessel2Image" Source="pack://application:,,,/Images/vessel_btn_all,1~6_select.png" Stretch="Uniform" Width="35"/>
                         <TextBlock Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="20" />
                     </Grid>
                 </Button>

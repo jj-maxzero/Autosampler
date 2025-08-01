@@ -23,6 +23,29 @@ namespace Autosampler_UI
         public MainControl()
         {
             InitializeComponent();
+            RackSelectionChanged(RackSelectionComboBox, null);
         }
+
+        private void RackSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (RackContentContol == null) return;
+
+            ComboBox comboBox = sender as ComboBox;
+            string selectedText = (comboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
+
+            if (selectedText == "15ml tube")
+            {
+                RackContentContol.Content = new Rack15mlControl(); //15ml 전용 컨트롤 로드
+            }
+
+            else if (selectedText == "50ml tube")
+            {
+                RackContentContol.Content = new Rack50mlControl();
+            }
+
+        }
+
+
     }
+
 }

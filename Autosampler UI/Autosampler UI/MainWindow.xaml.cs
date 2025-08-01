@@ -23,6 +23,31 @@ namespace Autosampler_UI
         public MainWindow()
         {
             InitializeComponent();
+
+            //Vessel1 기본 선택 상태로 설정
+            Vessel1Image.Source = new BitmapImage(new Uri("pack://application:,,,/Images/vessel_btn_all,1~6_normal.png"));  
+
+            //Main 버튼 눌림 상태로 처리
+            MainButton.Background = Brushes.DarkBlue;
+            MainButton.Foreground = Brushes.White;
+
+            //두 조건이 만족되므로 MainControl 로드
+            if(IsVessel1Selected() && IsMainButtonActive())
+            {
+                MainControl mainControl = new MainControl();
+                DynamicContent.Content = mainControl;
+            }
+        }
+
+        private bool IsVessel1Selected()
+        {
+            return Vessel1Image.Source.ToString().Contains("normal");
+        }
+
+        private bool IsMainButtonActive()
+        {
+            //mainbutton이 눌린 상태인지 여부(색상 또는 토글 여부 기반)
+            return MainButton.Background == Brushes.DarkBlue;
         }
 
         private void ShowMain(object sender, RoutedEventArgs e)
@@ -33,5 +58,6 @@ namespace Autosampler_UI
             //ContentControl에 삽입
             DynamicContent.Content = mainControl;
         }
+
     }
 }

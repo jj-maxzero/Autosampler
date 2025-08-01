@@ -7,7 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="800">
 
-
     <UserControl.Resources>
         <!-- ✅ 모든 라운드 버튼에 공통 적용할 스타일 -->
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
@@ -21,18 +20,18 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border CornerRadius="5"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
                             <ContentPresenter HorizontalAlignment="Center"
-                                          VerticalAlignment="Center"/>
+                                              VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
 
-
+        <!-- ✅ 둥근 콤보박스 스타일 -->
         <Style x:Key="RoundedComboBoxStyle" TargetType="ComboBox">
             <Setter Property="Background" Value="White"/>
             <Setter Property="Foreground" Value="Black"/>
@@ -44,60 +43,56 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="ComboBox">
                         <Border CornerRadius="5"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}">
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
                             <Grid>
-                                <!-- ✅ 3열 정의 (텍스트, 빈공간, 화살표용) -->
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
-                                    <!-- 텍스트 영역 -->
                                     <ColumnDefinition Width="Auto" />
-                                    <!-- 여유 공간 -->
                                     <ColumnDefinition Width="30" />
-                                    <!-- 화살표 영역 -->
                                 </Grid.ColumnDefinitions>
 
                                 <!-- ✅ 드롭다운 버튼 (화살표) -->
                                 <ToggleButton x:Name="ToggleButton"
-                  Grid.Column="2"
-                  Focusable="false"
-                  IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                  ClickMode="Press"
-                  Background="Transparent"
-                  BorderThickness="0">
+                                              Grid.Column="2"
+                                              Focusable="false"
+                                              IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                              ClickMode="Press"
+                                              Background="Transparent"
+                                              BorderThickness="0">
                                     <Path x:Name="Arrow"
-              HorizontalAlignment="Center"
-              VerticalAlignment="Center"
-              Data="M 0 0 L 4 4 L 8 0 Z"
-              Fill="Black"/>
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          Data="M 0 0 L 4 4 L 8 0 Z"
+                                          Fill="Black"/>
                                 </ToggleButton>
 
                                 <!-- ✅ 텍스트 표시 영역 -->
                                 <ContentPresenter x:Name="ContentSite"
-                      Grid.Column="0"
-                      IsHitTestVisible="False"
-                      Content="{TemplateBinding SelectionBoxItem}"
-                      ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
-                      Margin="5,3,5,3"
-                      VerticalAlignment="Center"
-                      HorizontalAlignment="Left" />
+                                                  Grid.Column="0"
+                                                  IsHitTestVisible="False"
+                                                  Content="{TemplateBinding SelectionBoxItem}"
+                                                  ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                                  Margin="5,3,5,3"
+                                                  VerticalAlignment="Center"
+                                                  HorizontalAlignment="Left" />
 
                                 <!-- ✅ 드롭다운 팝업 -->
                                 <Popup x:Name="Popup"
-                               Placement="Bottom"
-                               IsOpen="{TemplateBinding IsDropDownOpen}"
-                               AllowsTransparency="True"
-                               Focusable="False"
-                               PopupAnimation="Slide">
+                                       Placement="Bottom"
+                                       IsOpen="{TemplateBinding IsDropDownOpen}"
+                                       AllowsTransparency="True"
+                                       Focusable="False"
+                                       PopupAnimation="Slide">
                                     <Border x:Name="DropDownBorder"
-                                    Background="White"
-                                    BorderBrush="Gray"
-                                    BorderThickness="1"
-                                    CornerRadius="5" Width="180" Height="100">
-                                        <ScrollViewer Margin="0,0,0,0">
+                                            Background="White"
+                                            BorderBrush="Gray"
+                                            BorderThickness="1"
+                                            CornerRadius="5" Width="180" Height="100">
+                                        <ScrollViewer>
                                             <StackPanel IsItemsHost="True"
-                                                KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                                        KeyboardNavigation.DirectionalNavigation="Contained"/>
                                         </ScrollViewer>
                                     </Border>
                                 </Popup>
@@ -107,118 +102,282 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
-
     </UserControl.Resources>
-
-
-
 
     <Grid Background="White">
         <!-- ✅ 2행 × 2열 레이아웃 정의 -->
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
-            <!-- 첫 번째 줄 -->
+            <!-- 상단 -->
+            <RowDefinition Height="100" />
+            <!-- 첫 번째 라인 -->
+            <RowDefinition Height="10" />
+            <RowDefinition Height="100" />
             <RowDefinition Height="*" />
-            <!-- 두 번째 줄 -->
+            <!-- 두 번째 라인 -->
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="600" />
-            <!-- 첫 번째 열 -->
+            <ColumnDefinition Width="500" />
+            <!-- 왼쪽 -->
+            <ColumnDefinition Width="10" />
+            <!-- 구분 여백 -->
             <ColumnDefinition Width="*" />
-            <!-- 두 번째 열 -->
+            <!-- 오른쪽 -->
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0" Grid.Column="0"  Background="White">
-            <Grid Margin="5">
+
+        <!-- ✅ 왼쪽 상단 (Rack Selection) -->
+        <Border Grid.Row="0" Grid.Column="0" Background="White">
+            <Grid Margin="4">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="120" />
                     <ColumnDefinition Width="200"/>
                     <ColumnDefinition Width="180" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="1"
-           Text="Rack Selection"
-           FontSize="16"
-           FontWeight="Bold"
-           Foreground="Black"
-           Background="White"
-           HorizontalAlignment="Center"
-           VerticalAlignment="Center"
-           Margin="20,0,0,0"/>
+                           Text="Rack Selection"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="Black"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="20,0,0,0"/>
 
-                <!-- ✅ 기존 Button 대신 Border 사용 -->
+                <!-- ✅ 콤보박스 -->
                 <Border Grid.Column="2"
-        Width="180"
-        Height="30"
-        CornerRadius="5"
-        Background="White"
-        BorderBrush="Gray"
-        BorderThickness="1"
-        HorizontalAlignment="Right"
-        VerticalAlignment="Center">
-                    <ComboBox Style="{StaticResource RoundedComboBoxStyle}"
-              Width="150"
-              Height="30"
-              Background="Transparent"
-              Foreground="Black"
-              BorderThickness="0"
-              VerticalContentAlignment="Center">
+                        Width="150"
+                        Height="30"
+                        CornerRadius="5"
+                        Background="White"
+                        BorderBrush="Gray"
+                        BorderThickness="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                    <ComboBox x:Name="RackSelectionComboBox"
+                              Style="{StaticResource RoundedComboBoxStyle}"
+                              Width="150"
+                              Height="30"
+                              Background="Transparent"
+                              Foreground="Black"
+                              BorderThickness="0"
+                              VerticalContentAlignment="Center"
+                              SelectionChanged ="RackSelectionChanged"
+                              SelectedIndex="0">
                         <ComboBoxItem Content="15ml tube"/>
                         <ComboBoxItem Content="50ml tube"/>
                     </ComboBox>
                 </Border>
-
             </Grid>
         </Border>
 
-        <Border Grid.Row="0" Grid.Column="1" BorderBrush="LightGray" BorderThickness="1">
-            <TextBlock Text="1행 2열"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       FontSize="20"/>
-        </Border>
-
-        <Border Grid.Row="1" Grid.Column="0" BorderBrush="LightGray" BorderThickness="1">
-            <TextBlock Text="2행 1열"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       FontSize="20"/>
-        </Border>
-
-        <Border Grid.Row="1" Grid.Column="1" BorderBrush="LightGray" BorderThickness="1">
+        <!-- ✅ 오른쪽 상단 (Start Sampling 버튼) -->
+        <Border Grid.Row="0" Grid.Column="2" BorderBrush="LightGray" BorderThickness="0">
             <Grid>
-                <!-- 🔹 10개의 줄 만들기 -->
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <!-- 🔹 테스트용 박스 넣기 -->
-                <Border Grid.Row="0" BorderBrush="Red" BorderThickness="1">
-                    <TextBlock Text="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Border>
-
-                <Border Grid.Row="1" BorderBrush="Orange" BorderThickness="1">
-                    <TextBlock Text="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Border>
-
-                <!-- … 이런 식으로 10번 반복 … -->
-
-                <Border Grid.Row="9" BorderBrush="Purple" BorderThickness="1">
-                    <TextBlock Text="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Border>
+                <Button x:Name="StartSamplingButton"
+                        Content="Start Sampling"
+                        Width="270" Height="30"
+                        Background="#1E71B8"
+                        Foreground="White"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        BorderBrush="DarkBlue"
+                        BorderThickness="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="5">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </Grid>
         </Border>
 
+        <!-- ✅ 메인 왼쪽 (Rack 화면 표시 영역) -->
+        <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="4">
+            <ContentControl x:Name="RackContentContol"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch" />
+        </Border>
+
+        <!-- ✅ 메인 오른쪽 (상태 표시 + 버튼) -->
+        <Border Grid.Row="1" Grid.Column="2" Background="#F2F2F2" CornerRadius="8" Padding="1" Margin="0,10,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <!-- 상태 표시 -->
+                    <ColumnDefinition Width="10" />
+                    <!-- 구분선 -->
+                    <ColumnDefinition Width="140" />
+                    <!-- 버튼 영역 -->
+                </Grid.ColumnDefinitions>
+
+                <!-- ✅ 상태 표시 StackPanel -->
+                <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,0">
+                    <!-- Non selection -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Ellipse Width="14" Height="14" Fill="Gray" Margin="0,0,8,0"/>
+                        <TextBlock Text="Non selection" VerticalAlignment="Center" FontSize="14"/>
+                    </StackPanel>
+
+                    <!-- Selection -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Ellipse Width="14" Height="14" Fill="Blue" Margin="0,0,8,0"/>
+                        <TextBlock Text="Selection" VerticalAlignment="Center" FontSize="14"/>
+                    </StackPanel>
+
+                    <!-- Sampling Complete -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Ellipse Width="14" Height="14" Fill="Orange" Margin="0,0,8,0"/>
+                        <TextBlock Text="Sampled" VerticalAlignment="Center" FontSize="14"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- ✅ 세로 구분선 -->
+                <Border Grid.Column="1" Width="1" Background="LightGray" />
+
+                <!-- ✅ 버튼 StackPanel -->
+                <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <!-- All Able 버튼 -->
+                    <Button x:Name="AllAbleButton"
+                            Content="All Able"
+                            Width="120" Height="36"
+                            Background="#1E71B8" Foreground="White"
+                            FontSize="16" FontWeight="Bold"
+                            BorderThickness="0" Margin="0,0,0,10">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius="5"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <!-- All Disable 버튼 -->
+                    <Button x:Name="AllDisableButton"
+                            Content="All Disable"
+                            Width="120" Height="36"
+                            Background="#1E71B8" Foreground="White"
+                            FontSize="16" FontWeight="Bold"
+                            BorderThickness="0">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius="5"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ✅ 메인 오른쪽 (상태 표시 + 버튼) -->
+        <Border Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Background="#F2F2F2" CornerRadius="8" Padding="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <!-- 상태 표시 -->
+                    <ColumnDefinition Width="10" />
+                    <!-- 구분선 -->
+                    <ColumnDefinition Width="120" />
+                    <!-- 버튼 영역 -->
+                </Grid.ColumnDefinitions>
+
+                <!-- ✅ 상태 표시 StackPanel -->
+                <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,0">
+                    <!-- Non selection -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Ellipse Width="14" Height="14" Fill="Gray" Margin="0,0,8,0"/>
+                        <TextBlock Text="Tray Ready" VerticalAlignment="Center" FontSize="14"/>
+                    </StackPanel>
+
+                    <!-- Selection -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Ellipse Width="14" Height="14" Fill="Blue" Margin="0,0,8,0"/>
+                        <TextBlock Text="Selection" VerticalAlignment="Center" FontSize="14"/>
+                    </StackPanel>
+
+                    <!-- Sampling Complete -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Ellipse Width="14" Height="14" Fill="Orange" Margin="0,0,8,0"/>
+                        <TextBlock Text="Sampling Complete" VerticalAlignment="Center" FontSize="14"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- ✅ 세로 구분선 -->
+                <Border Grid.Column="1" Width="1" Background="LightGray" />
+
+                <!-- ✅ 버튼 StackPanel -->
+                <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <!-- All Able 버튼 -->
+                    <Button x:Name="AllAbleButton1"
+                     Content="All Able"
+                     Width="120" Height="36"
+                     Background="#1E71B8" Foreground="White"
+                     FontSize="16" FontWeight="Bold"
+                     BorderThickness="0" Margin="0,0,0,10">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius="5"
+                                 Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <!-- All Disable 버튼 -->
+                    <Button x:Name="AllDisableButton1"
+                     Content="All Disable"
+                     Width="120" Height="36"
+                     Background="#1E71B8" Foreground="White"
+                     FontSize="16" FontWeight="Bold"
+                     BorderThickness="0">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius="5"
+                                 Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>
