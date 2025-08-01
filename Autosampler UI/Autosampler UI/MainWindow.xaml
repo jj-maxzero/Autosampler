@@ -70,7 +70,7 @@
                 </Button>
 
                 <!-- Calibration 버튼 -->
-                <Button x:Name="CalButton" Style="{StaticResource NavButtonStyle}" Width="170" Height="40">
+                <Button x:Name="CalButton" Style="{StaticResource NavButtonStyle}" Width="170" Height="40" Click="ShowCalibration">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Source="pack://application:,,,/Images/side menu_cascade_icon_normal.png" Width="20" Height="20" Margin="0,0,2,0" />
                         <TextBlock Text="Calibration" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />

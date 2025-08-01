@@ -27,12 +27,12 @@
                         <ControlTemplate.Triggers>
                             <!-- ✅ 1. 선택되었을 때 (IsChecked=True) -->
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="LightSkyBlue"/>
+                                <Setter TargetName="border" Property="Background" Value="Blue"/>
                             </Trigger>
 
                             <!-- ✅ 2. 샘플링 완료 상태 (Tag="Completed") -->
                             <Trigger Property="Tag" Value="Completed">
-                                <Setter TargetName="border" Property="Background" Value="LightGreen"/>
+                                <Setter TargetName="border" Property="Background" Value="Orange"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

@@ -24,7 +24,32 @@ namespace Autosampler_UI
         {
             InitializeComponent();
             RackSelectionChanged(RackSelectionComboBox, null);
+            AllDisableButton.Click += AllDisableButton_Click;
         }
+
+        // ✅ All Disable 버튼 눌렀을 때 실행되는 코드
+        private void AllDisableButton_Click(object sender, RoutedEventArgs e)
+        {
+            // ✅ RackContentContol이 Rack15mlControl인지 확인 후 ToggleButton 해제
+            if (RackContentContol.Content is Rack15mlControl rack15ml)
+            {
+                rack15ml.DisableAllButtons();   // ⬅ Rack15mlControl에 메서드 만들어서 호출
+            }
+
+           
+        }
+
+        private void AllAbleButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (RackContentContol.Content is Rack15mlControl rack15ml)
+            {
+                rack15ml.EnableAllButtons();   // ✅ 15ml 전체 버튼 선택
+            }
+
+           
+        }
+
+
 
         private void RackSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -33,7 +58,7 @@ namespace Autosampler_UI
             ComboBox comboBox = sender as ComboBox;
             string selectedText = (comboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
 
-            if (selectedText == "15ml tube")
+            if (selectedText == "15ml tube A, B")
             {
                 RackContentContol.Content = new Rack15mlControl(); //15ml 전용 컨트롤 로드
             }

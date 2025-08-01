@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\j\Documents\Autosampler\Autosampler UI\Autosampler UI\App.xaml
-4-240053258
+5-467084025
 
-9-1954815310
+10-399968347
 13-1310406943
-MainControl.xaml;MainWindow.xaml;Rack15mlControl.xaml;Rack50mlControl.xaml;
+CalirationControl.xaml;MainControl.xaml;MainWindow.xaml;Rack15mlControl.xaml;Rack50mlControl.xaml;
 
 True
 

@@ -55,12 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CalirationControl.xaml.cs">
+      <DependentUpon>CalirationControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Rack15mlControl.xaml.cs">
       <DependentUpon>Rack15mlControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Rack50mlControl.xaml.cs">
       <DependentUpon>Rack50mlControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="CalirationControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

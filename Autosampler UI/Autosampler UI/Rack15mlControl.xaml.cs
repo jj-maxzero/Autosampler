@@ -56,7 +56,7 @@ namespace Autosampler_UI
             return new ToggleButton
             {
                 Content = number.ToString(),
-                Width = 70,
+                Width = 65,
                 Height = 33,
                 Background = Brushes.White,
                 BorderBrush = Brushes.Gray,
@@ -108,6 +108,34 @@ namespace Autosampler_UI
             template.VisualTree = border;
             return template;
         }
+
+        public void DisableAllButtons()
+        {
+            foreach (var child in RackGrid.Children)
+            {
+                if (child is ToggleButton btn)
+                {
+                    btn.IsChecked = false;   // ✅ 버튼 해제
+                    btn.Tag = null;          // ✅ 상태 초기화 (Completed 같은 태그도 리셋)
+                    btn.Background = Brushes.White;  // ✅ 배경색도 초기화 (필요하면)
+                }
+            }
+        }
+
+
+        public void EnableAllButtons()
+        {
+            foreach (var child in RackGrid.Children)
+            {
+                if (child is ToggleButton btn)
+                {
+                    btn.IsChecked = true;            // ✅ 토글 ON
+                    btn.Tag = null;                  // 상태 초기화 (필요하면 유지)
+                    btn.Background = Brushes.LightBlue; // ✅ 선택된 색상 (SampleToggleButtonStyle에서 색상 지정됨)
+                }
+            }
+        }
+
 
         private ControlTemplate CreateRoundButtonTemplate()
         {

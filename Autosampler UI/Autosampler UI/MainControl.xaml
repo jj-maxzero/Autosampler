@@ -102,6 +102,32 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <!-- ✅ 둥근 TextBox 스타일 -->
+        <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="4,2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="6">
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+
+
+
     </UserControl.Resources>
 
     <Grid Background="White">
@@ -112,13 +138,14 @@
             <RowDefinition Height="100" />
             <!-- 첫 번째 라인 -->
             <RowDefinition Height="10" />
-            <RowDefinition Height="100" />
+            <RowDefinition Height="90" />
+            <RowDefinition Height="10" />
             <RowDefinition Height="*" />
             <!-- 두 번째 라인 -->
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="500" />
+            <ColumnDefinition Width="450" />
             <!-- 왼쪽 -->
             <ColumnDefinition Width="10" />
             <!-- 구분 여백 -->
@@ -131,7 +158,7 @@
         <Border Grid.Row="0" Grid.Column="0" Background="White">
             <Grid Margin="4">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="70" />
                     <ColumnDefinition Width="200"/>
                     <ColumnDefinition Width="180" />
                 </Grid.ColumnDefinitions>
@@ -165,7 +192,7 @@
                               VerticalContentAlignment="Center"
                               SelectionChanged ="RackSelectionChanged"
                               SelectedIndex="0">
-                        <ComboBoxItem Content="15ml tube"/>
+                        <ComboBoxItem Content="15ml tube A, B"/>
                         <ComboBoxItem Content="50ml tube"/>
                     </ComboBox>
                 </Border>
@@ -202,7 +229,7 @@
         </Border>
 
         <!-- ✅ 메인 왼쪽 (Rack 화면 표시 영역) -->
-        <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="4">
+        <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="5">
             <ContentControl x:Name="RackContentContol"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch" />
@@ -252,7 +279,7 @@
                             Width="120" Height="36"
                             Background="#1E71B8" Foreground="White"
                             FontSize="16" FontWeight="Bold"
-                            BorderThickness="0" Margin="0,0,0,10">
+                            BorderThickness="0" Margin="0,0,0,10" Click="AllAbleButton_Click">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border CornerRadius="5"
@@ -304,7 +331,7 @@
 
 
         <!-- ✅ 메인 오른쪽 (상태 표시 + 버튼) -->
-        <Border Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Background="#F2F2F2" CornerRadius="8" Padding="10">
+        <Border Grid.Row="3" Grid.Column="2" Grid.RowSpan="1" Background="#F2F2F2" CornerRadius="8" Padding="0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -320,13 +347,13 @@
                     <!-- Non selection -->
                     <StackPanel Orientation="Horizontal" Margin="0,5">
                         <Ellipse Width="14" Height="14" Fill="Gray" Margin="0,0,8,0"/>
-                        <TextBlock Text="Tray Ready" VerticalAlignment="Center" FontSize="14"/>
+                        <TextBlock Text="Tray A Ready" VerticalAlignment="Center" FontSize="14"/>
                     </StackPanel>
 
                     <!-- Selection -->
                     <StackPanel Orientation="Horizontal" Margin="0,5">
                         <Ellipse Width="14" Height="14" Fill="Blue" Margin="0,0,8,0"/>
-                        <TextBlock Text="Selection" VerticalAlignment="Center" FontSize="14"/>
+                        <TextBlock Text="Tray B Ready" VerticalAlignment="Center" FontSize="14"/>
                     </StackPanel>
 
                     <!-- Sampling Complete -->
@@ -336,48 +363,177 @@
                     </StackPanel>
                 </StackPanel>
 
-                <!-- ✅ 세로 구분선 -->
-                <Border Grid.Column="1" Width="1" Background="LightGray" />
-
-                <!-- ✅ 버튼 StackPanel -->
-                <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <!-- All Able 버튼 -->
-                    <Button x:Name="AllAbleButton1"
-                     Content="All Able"
-                     Width="120" Height="36"
-                     Background="#1E71B8" Foreground="White"
-                     FontSize="16" FontWeight="Bold"
-                     BorderThickness="0" Margin="0,0,0,10">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border CornerRadius="5"
-                                 Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center"
-                                               VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-
-                    <!-- All Disable 버튼 -->
-                    <Button x:Name="AllDisableButton1"
-                     Content="All Disable"
-                     Width="120" Height="36"
-                     Background="#1E71B8" Foreground="White"
-                     FontSize="16" FontWeight="Bold"
-                     BorderThickness="0">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border CornerRadius="5"
-                                 Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center"
-                                               VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                </StackPanel>
+               
             </Grid>
         </Border>
+
+
+
+
+
+
+
+
+        <Border Grid.Row="4" Grid.Column="2" Grid.RowSpan="2" 
+        Background="#F2F2F2" CornerRadius="8" Padding="0" Margin="0,10,0,0">
+            <Grid>
+                <!-- 🔹 3열 (라벨 / PV / SV) -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <!-- Volume, Speed 라벨 -->
+                    <ColumnDefinition Width="90"/>
+                    <!-- PV 입력칸 -->
+                    <ColumnDefinition Width="90"/>
+                    <!-- SV 입력칸 -->
+                </Grid.ColumnDefinitions>
+
+                <!-- 🔹 3행 (버튼 / Volume / Speed) -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <!-- 상단 -->
+                    <RowDefinition Height="Auto"/>
+                
+                    <RowDefinition Height="Auto"/>
+                  
+                   
+                    <!-- 나머지는 채움 -->
+                </Grid.RowDefinitions>
+
+                <!-- ✅ PV 버튼 -->
+                <Button Grid.Row="0" Grid.Column="1"
+                Content="PV"
+                Width="70" Height="30"
+                Background="Orange"
+                Foreground="White"
+                FontSize="14"
+                FontWeight="Bold"
+                BorderThickness="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="6">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <!-- ✅ SV 버튼 -->
+                <Button Grid.Row="0" Grid.Column="2"
+                Content="SV"
+                Width="70" Height="30"
+                Background="Orange"
+                Foreground="White"
+                FontSize="14"
+                FontWeight="Bold"
+                BorderThickness="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="6">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Border Grid.Row="1" Grid.Column="0"
+        Background="Orange"
+        CornerRadius="6"
+        Padding="5"
+        Margin="2">
+                    <TextBlock Text="Interval time"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               FontSize="14"
+               FontWeight="Bold"
+               Foreground="White"/>
+                </Border>
+
+                <!-- ✅ PV Volume 입력칸 -->
+                <TextBox Grid.Row="1" Grid.Column="1"
+                 Text="0.000"
+                 Width="70" Height="30"
+                 FontSize="14"
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center"
+                 Style="{StaticResource RoundedTextBoxStyle}"
+                 Background="LightGray"
+                 BorderBrush="Gray"
+                 BorderThickness="1"
+                 Margin="2"/>
+
+                <!-- ✅ SV Volume 입력칸 -->
+                <TextBox Grid.Row="1" Grid.Column="2"
+                 Text="0.000"
+                 Width="70" Height="30"
+                 FontSize="14"
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center"
+                         Style="{StaticResource RoundedTextBoxStyle}"
+                 Background="White"
+                 BorderBrush="Gray"
+                 BorderThickness="1"
+                 Margin="2"/>
+
+                <!-- ✅ Speed 라벨 -->
+                <Border Grid.Row="2" Grid.Column="0"
+            Background="Orange"
+            CornerRadius="6"
+            Padding="5"
+            Margin="2">
+                    <TextBlock Text="Volume(ml)"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               FontSize="14"
+               FontWeight="Bold"
+               Foreground="White"/>
+                </Border>
+
+                <!-- ✅ PV Speed 입력칸 -->
+                <TextBox Grid.Row="2" Grid.Column="1"
+                 Text="0.000"
+                 Width="70" Height="30"
+                 FontSize="14"
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center"
+                         Style="{StaticResource RoundedTextBoxStyle}"
+                 Background="LightGray"
+                 BorderBrush="Gray"
+                 BorderThickness="1"
+                 Margin="2"/>
+
+                <!-- ✅ SV Speed 입력칸 -->
+                <TextBox Grid.Row="2" Grid.Column="2"
+                 Text="0.000"
+                 Width="70" Height="30"
+                 FontSize="14"
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center"
+                         Style="{StaticResource RoundedTextBoxStyle}"
+                 Background="White"
+                 BorderBrush="Gray"
+                 BorderThickness="1"
+                 Margin="2"/>
+            </Grid>
+        </Border>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </Grid>
 </UserControl>
