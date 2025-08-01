@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Autosampler_UI"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="800">
+             d:DesignHeight="514" d:DesignWidth="1024">
 
     <UserControl.Resources>
         <!-- ✅ 모든 라운드 버튼에 공통 적용할 스타일 -->
@@ -135,21 +135,21 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
             <!-- 상단 -->
-            <RowDefinition Height="100" />
+            <RowDefinition Height="110" />
             <!-- 첫 번째 라인 -->
             <RowDefinition Height="10" />
-            <RowDefinition Height="90" />
+            <RowDefinition Height="120" />
             <RowDefinition Height="10" />
             <RowDefinition Height="*" />
             <!-- 두 번째 라인 -->
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="450" />
+            <ColumnDefinition Width="*" />
             <!-- 왼쪽 -->
             <ColumnDefinition Width="10" />
             <!-- 구분 여백 -->
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="350" />
             <!-- 오른쪽 -->
         </Grid.ColumnDefinitions>
 
@@ -158,9 +158,9 @@
         <Border Grid.Row="0" Grid.Column="0" Background="White">
             <Grid Margin="4">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="70" />
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="180" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="1"
@@ -379,17 +379,17 @@
             <Grid>
                 <!-- 🔹 3열 (라벨 / PV / SV) -->
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="2*"/>
                     <!-- Volume, Speed 라벨 -->
-                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="1*"/>
                     <!-- PV 입력칸 -->
-                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="1*"/>
                     <!-- SV 입력칸 -->
                 </Grid.ColumnDefinitions>
 
                 <!-- 🔹 3행 (버튼 / Volume / Speed) -->
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="40"/>
                     <!-- 상단 -->
                     <RowDefinition Height="Auto"/>
                 

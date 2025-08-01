@@ -56,13 +56,14 @@ namespace Autosampler_UI
             return new ToggleButton
             {
                 Content = number.ToString(),
-                Width = 65,
-                Height = 33,
+                Width = 95,
+                Height = 55,
                 Background = Brushes.White,
                 BorderBrush = Brushes.Gray,
-                BorderThickness = new Thickness(1),
+                BorderThickness = new Thickness(0),
                 Margin = new Thickness(5),
                 FontWeight = FontWeights.Bold,
+                FontSize = 18,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 Style = (Style)FindResource("SampleToggleButtonStyle") // ✅ Style 적용
@@ -94,7 +95,7 @@ namespace Autosampler_UI
 
             //  버튼 외곽 (CornerRadius로 살짝 둥글게)
             FrameworkElementFactory border = new FrameworkElementFactory(typeof(Border));
-            border.SetValue(Border.CornerRadiusProperty, new CornerRadius(8)); // 살짝 둥근 사각형
+            border.SetValue(Border.CornerRadiusProperty, new CornerRadius(50)); // 살짝 둥근 사각형
             border.SetValue(Border.BackgroundProperty, new TemplateBindingExtension(Button.BackgroundProperty));
             border.SetValue(Border.BorderBrushProperty, new TemplateBindingExtension(Button.BorderBrushProperty));
             border.SetValue(Border.BorderThicknessProperty, new TemplateBindingExtension(Button.BorderThicknessProperty));
